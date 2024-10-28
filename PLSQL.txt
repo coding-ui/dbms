@@ -1,0 +1,113 @@
+FIBONACCI SERIES
+
+declare
+first number:=0;
+second number:=1;
+temp number;
+i number;
+n number:=5;
+begin
+dbms_output.put_line('series');
+dbms_output.put_line(first);
+dbms_output.put_line(second);
+for i in 2..n loop
+temp:=first+second;
+first:=second;
+second:=temp;
+dbms_output.put_line(temp);
+end loop;
+end;
+/
+
+
+ARMSTRONG NUMBER
+
+declare
+  n number:=1634;
+  s number:=0;
+  r number;
+  len number;
+  m number;
+  begin
+ m := n;
+ len := length(to_char(n));
+  while n>0
+  loop
+  r := mod(n , 10);
+  s := s + power(r , len);
+  n := trunc(n / 10);
+  end loop;
+  if m = s
+  then
+  dbms_output.put_line('yes');
+  else
+  dbms_output.put_line('no');
+  end if;
+  end;
+  /
+
+
+EXCEPTION HANDLING
+
+ZERO-DIVIDE
+
+DECLARE
+  a int:=10;
+  b int:=0;
+  answer int;
+  BEGIN
+  answer:=a/b;
+  dbms_output.put_line('the result after division is'||answer);
+  exception
+  WHEN zero_divide THEN
+  dbms_output.put_line('dividing by zero please check the values again');
+  dbms_output.put_line('the value of a is '||a);
+ dbms_output.put_line('the value of b is '||b);
+  END;
+  /
+
+
+TOO MANY ROWS
+
+DECLARE
+  temp varchar(20);
+  BEGIN
+  SELECT g_name into temp from student ;
+  dbms_output.put_line(temp);
+  EXCEPTION
+ WHEN too_many_rows THEN
+  dbms_output.put_line('error trying to SELECT too many rows');
+  end;
+ /
+
+
+NO DATA FOUND
+
+DECLARE
+  temp varchar(20);
+  BEGIN
+ SELECT g_id into temp from student where g_name='deepthi';
+ exception
+  WHEN no_data_found THEN
+  dbms_output.put_line('ERROR');
+ dbms_output.put_line('there is no name as');
+  dbms_output.put_line('deepthi in students table');
+ end;
+  /
+
+
+VALUE ERROR
+
+DECLARE
+  temp number(12);
+  BEGIN
+  SELECT g_name into temp from student where g_name='SURAJ';
+  dbms_output.put_line('the g_name is '||temp);
+ EXCEPTION
+  WHEN value_error THEN
+  dbms_output.put_line('Error');
+  dbms_output.put_line('Change data type of temp to varchar(20)');
+  END;
+  /
+
+
