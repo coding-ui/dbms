@@ -1,0 +1,49 @@
+1) select * from act where act_id=(select act_id from mc where movie_id=(select movie_id from movie where title='The Deer Hunter'));
+
+    ACT_ID NAME                                          GEN
+---------- --------------------------------------------- ---
+       104 Murray Abraham                                M
+
+
+2) select title,movie_year,movie_time,release_date,rel_country from movie where rel_country not in('uk');
+
+TITLE                                         MOVIE_YEAR MOVIE_TIME RELEASE_DATE       REL_COUNT
+--------------------------------------------- ---------- ---------- ------------------ ---------
+amadeus                                             1984        160 07-JAN-87          sw
+
+3) create view actor_view as select * from act;
+
+View created.
+
+SQL> select * from actor_view;
+
+    ACT_ID NAME                                          GEN
+---------- --------------------------------------------- ---
+       101 James Stewart                                 M
+       102 Peter                                         M
+       103 Claire                                        F
+       104 Murray Abraham                                M
+       105 Deborah                                       F
+
+
+4)desc
+SQL> select * from actor_view order by name desc;
+
+    ACT_ID NAME                                          GEN
+---------- --------------------------------------------- ---
+       102 Peter                                         M
+       104 Murray Abraham                                M
+       101 James Stewart                                 M
+       105 Deborah                                       F
+       103 Claire                                        F
+
+asc
+SQL> select * from actor_view order by name;
+
+    ACT_ID NAME                                          GEN
+---------- --------------------------------------------- ---
+       103 Claire                                        F
+       105 Deborah                                       F
+       101 James Stewart                                 M
+       104 Murray Abraham                                M
+       102 Peter                                         M

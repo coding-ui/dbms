@@ -1,0 +1,70 @@
+1)
+SQL> select count(item) from ordertable;
+
+COUNT(ITEM)
+-----------
+          5
+
+2)select order_date, count(custid) from ordertable group by order_date;
+
+ORDER_DATE         COUNT(CUSTID)
+------------------ -------------
+01-JUL-99                      2
+06-JUL-99                      1
+30-JUN-99                      2
+
+3) select custid,order_date from ordertable where (quantity * price)=(select max(quantity * price) from ordertable);
+
+    CUSTID ORDER_DATE
+---------- ------------------
+     10299 06-JUL-99
+
+4) select custid,order_date from ordertable where (quantity * price)=(select min(quantity * price) from ordertable);
+
+    CUSTID ORDER_DATE
+---------- ------------------
+     10330 30-JUN-99
+
+5)select price * 5 from ordertable where item='skateboard';
+
+   PRICE*5
+----------
+       165
+
+6)
+SQL> select item ,price from ordertable where price=(select max(price) from ordertable);
+
+ITEM                                PRICE
+------------------------------ ----------
+parachute                            1250
+
+============================================================================================================================================================
+b)
+
+1) select * from ordertable where item between 'p' and 't';
+
+    CUSTID ORDER_DATE         ITEM                             QUANTITY      PRICE
+---------- ------------------ ------------------------------ ---------- ----------
+     10330 30-JUN-99          pogo-stick                              1         28
+     10101 30-JUN-99          raft                                    1         58
+     10298 01-JUL-99          skateboard                              1         33
+     10299 06-JUL-99          parachute                               1       1250
+
+2) select * from ordertable where item not between 'p' and 't';
+
+    CUSTID ORDER_DATE         ITEM                             QUANTITY      PRICE
+---------- ------------------ ------------------------------ ---------- ----------
+     10101 01-JUL-99          life vest                               4        125
+
+
+3) select * from ordertable where item like 's%';
+
+    CUSTID ORDER_DATE         ITEM                             QUANTITY      PRICE
+---------- ------------------ ------------------------------ ---------- ----------
+     10298 01-JUL-99          skateboard                              1         33
+
+4)select * from ordertable where item like 'p____s%';
+
+    CUSTID ORDER_DATE         ITEM                             QUANTITY      PRICE
+---------- ------------------ ------------------------------ ---------- ----------
+     10330 30-JUN-99          pogo-stick                              1         28

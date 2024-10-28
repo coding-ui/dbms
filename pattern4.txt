@@ -1,0 +1,38 @@
+1)
+SQL> select * from sales where city not in ('rome','paris');
+
+    SAL_ID NAME                                          CITY                  COMMISSION
+---------- --------------------------------------------- --------------------- ----------
+      5001 james steve                                   newyork                      .15
+      5005 alex pandian                                  london                       .11
+      5003 ravi shanker                                  sanjose                      .12
+
+2) select * from sales where city in ('rome','paris');
+
+    SAL_ID NAME                                          CITY                  COMMISSION
+---------- --------------------------------------------- --------------------- ----------
+      5002 rajesh kumar                                  paris                        .13
+      5006 ajith                                         paris                        .14
+      5007 paul adam                                     rome                         .13
+3)select * from sales where name like '%r';
+
+    SAL_ID NAME                                          CITY                  COMMISSION
+---------- --------------------------------------------- --------------------- ----------
+      5002 rajesh kumar                                  paris                        .13
+      5003 ravi shanker                                  sanjose                      .12
+
+4)select * from sales where name like '%n%';
+
+    SAL_ID NAME                                          CITY                  COMMISSION
+---------- --------------------------------------------- --------------------- ----------
+      5005 alex pandian                                  london                       .11
+      5003 ravi shanker                                  sanjose                      .12
+5)
+ select * from sales where name like '_a%';
+
+    SAL_ID NAME                                          CITY                  COMMISSION
+---------- --------------------------------------------- --------------------- ----------
+      5001 james steve                                   newyork                      .15
+      5002 rajesh kumar                                  paris                        .13
+      5007 paul adam                                     rome                         .13
+      5003 ravi shanker                                  sanjose                      .12

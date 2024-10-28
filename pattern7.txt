@@ -1,0 +1,42 @@
+ 1)select count(distinct sal_id) from order_table;
+
+COUNT(DISTINCTSAL_ID)
+---------------------
+                    4
+
+2)SQL> select count(cust_id) from order_table;
+
+COUNT(CUST_ID)
+--------------
+             7
+3)select max(pur_amt) from order_table where pur_amt < (select pur_amt from order_table where ord_no=70010);
+
+MAX(PUR_AMT)
+------------
+       948.5
+
+4)SQL> select min(pur_amt) from order_table where pur_amt > (select pur_amt from order_table where ord_no=70007);
+
+MIN(PUR_AMT)
+------------
+     1983.43
+
+5) select sal_id,sum(pur_amt) from order_table where or_date='05-oct-2022' group by sal_id;
+
+    SAL_ID SUM(PUR_AMT)
+---------- ------------
+      5001      2465.86
+      5002         1099
+
+record type
+ 3)select ceil(pur_amt) from order_table where ord_no=70010;
+
+CEIL(PUR_AMT)
+-------------
+         1984
+
+4)SQL> select floor(pur_amt) from order_table where ord_no=70007;
+
+FLOOR(PUR_AMT)
+--------------
+           948

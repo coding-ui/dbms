@@ -1,0 +1,49 @@
+1) select m.title,re.rev_name from movie m , rate ra,review re where re.rev_id=ra.rev_id and ra.movie_id=m.movie_id and re.rev_name!='null';
+
+TITLE                                         REV_NAME
+--------------------------------------------- ---------------------------------------------
+vertigo                                       righty sock
+law of arabia                                 flowrence
+The Deer Hunter                               alex
+
+2) select m.title,max(ra.rec_stars) from movie m,rate ra where ra.movie_id=m.movie_id group by m.title order by m.title;
+
+TITLE                                         MAX(RA.REC_STARS)
+--------------------------------------------- -----------------
+The Deer Hunter                                               4
+law of arabia                                                 6
+vertigo                                                       9
+
+3)
+SQL> select rev_name,title,rec_stars from movie m,rate ra,review re where re.rev_id=ra.rev_id and ra.movie_id=m.movie_id and ratings=(select min(ratings) from rate);
+
+REV_NAME                                      TITLE                                          REC_STARS
+--------------------------------------------- --------------------------------------------- ----------
+righty sock                                   vertigo                                                9
+4) create view review_view as select * from review;
+
+View created.
+
+SQL> select * from review_view;
+
+    REV_ID REV_NAME
+---------- ---------------------------------------------
+      9001 righty sock
+      9002 jack malvern
+      9003 flowrence
+      9004 alex
+      9005
+5)
+SQL> update review_view set rev_name='sakthi' where rev_name is null;
+
+1 row updated.
+
+SQL> select * from review_view;
+
+    REV_ID REV_NAME
+---------- ---------------------------------------------
+      9001 righty sock
+      9002 jack malvern
+      9003 flowrence
+      9004 alex
+      9005 sakthi
