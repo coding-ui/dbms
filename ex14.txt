@@ -1,0 +1,21 @@
+SELECT COUNT(*) AS junior_managers_count
+FROM Employee
+WHERE Designation = 'Jr. Manager';
+
+
+SELECT COUNT(*) AS managers_in_chennai
+FROM Employee
+WHERE Designation = 'Manager' AND Location = 'Chennai';
+
+
+SELECT COUNT(DISTINCT Dept) AS num_departments
+FROM Employee;
+
+SELECT Gender, COUNT(*) AS num_employees
+FROM Employee
+GROUP BY Gender;
+
+SELECT Gender, COUNT(*) AS num_employees
+FROM Employee
+WHERE Dept = 'Sales'
+GROUP BY Gender;

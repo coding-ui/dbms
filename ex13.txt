@@ -1,0 +1,21 @@
+SELECT Gender, COUNT(*) AS count
+FROM student
+GROUP BY Gender;
+
+SELECT COUNT(*) AS O_positive_students
+FROM student
+WHERE Bloodgroup = 'O+';
+
+SELECT Gender, COUNT(*) AS O_positive_students
+FROM student
+WHERE Bloodgroup = 'O+'
+GROUP BY Gender;
+
+SELECT COUNT(*) AS O_positive_XII_students
+FROM student
+WHERE Bloodgroup = 'O+' AND Class = 'XII';
+
+SELECT Gender, COUNT(*) AS O_positive_XII_students
+FROM student
+WHERE Bloodgroup = 'O+' AND Class = 'XII'
+GROUP BY Gender;

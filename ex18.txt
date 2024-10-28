@@ -1,0 +1,3 @@
+SELECT e1.Emp_Name AS Employee, e2.Emp_Name AS Manager
+FROM Employees e1
+JOIN Employees e2 ON e1.Manager_id = e2.Emp_No;

@@ -1,0 +1,33 @@
+CREATE TABLE Books (
+    isbn VARCHAR(20) PRIMARY KEY,
+    title VARCHAR(100),
+    price DECIMAL(10, 2) NOT NULL,
+    qty INT NOT NULL
+);
+
+CREATE TABLE Authors (
+    authorId INT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE Book_Authors (
+    isbn VARCHAR(20),
+    authorId INT,
+    FOREIGN KEY (isbn) REFERENCES Books(isbn),
+    FOREIGN KEY (authorId) REFERENCES Authors(authorId)
+);
+
+ALTER TABLE Books 
+ADD CONSTRAINT unique_title UNIQUE (title);
+
+ALTER TABLE Books 
+MODIFY price DECIMAL(10, 2) NOT NULL;
+
+ALTER TABLE Books 
+MODIFY price DECIMAL(10, 2) NOT NULL CONSTRAINT check_price CHECK (price > 0.0);
+
+ALTER TABLE Books 
+MODIFY qty INT NULL;
+
+ALTER TABLE Books 
+MODIFY qty INT DEFAULT 0;

@@ -1,0 +1,17 @@
+UPDATE employees 
+SET phone_number = REPLACE(phone_number, '401', '411');
+
+SELECT * 
+FROM employees 
+WHERE LENGTH(first_name) >= 5;
+
+UPDATE employees 
+SET email = CONCAT(email, '@gmail.com');
+
+SELECT emp_id, first_name, (SYSDATE - doj) / 365 AS work_experience 
+FROM employees 
+WHERE emp_id = 104;
+
+
+SELECT emp_id, SUBSTR(email, 1, LENGTH(email) - 3) AS email 
+FROM employees;

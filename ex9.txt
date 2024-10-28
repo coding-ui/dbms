@@ -1,0 +1,16 @@
+SELECT * 
+FROM employees 
+WHERE UPPER(first_name) = first_name;
+
+SELECT SUBSTR(phone_number, -4) AS last_4_digits 
+FROM employees;
+
+SELECT first_name, LENGTH(first_name) AS name_length 
+FROM employees 
+WHERE INSTR(last_name, 'a', 2) > 0;
+
+SELECT first_name, LENGTH(first_name) AS name_length 
+FROM employees 
+WHERE first_name LIKE 'S%';
+
+Select first_name,length(firstname),add_months(doj,1) from employees;

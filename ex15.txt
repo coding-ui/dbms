@@ -1,0 +1,8 @@
+SELECT c., o.
+FROM Customer c
+LEFT JOIN Order o ON c.Cust_Id = o.Cust_Id;
+
+
+SELECT c., o.
+FROM Customer c
+RIGHT JOIN Order o ON c.Cust_Id = o.Cust_Id;

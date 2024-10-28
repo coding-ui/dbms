@@ -1,0 +1,24 @@
+SELECT Designation, SUM(Salary) AS Total_Salary
+FROM Employees
+GROUP BY Designation;
+
+SELECT Designation, SUM(Salary) AS Total_Salary
+FROM Employees
+GROUP BY Designation
+HAVING SUM(Salary) >= 35000;
+
+SELECT DISTINCT Designation
+FROM Employees
+ORDER BY Designation DESC;
+
+SELECT COUNT(*) AS Employees_Less_Than_25000
+FROM Employees
+WHERE Salary < 25000;
+
+SELECT Name
+FROM Employees
+WHERE Designation = 'Developer';
+
+SELECT COUNT(*) AS Developer_Count
+FROM Employees
+WHERE Designation = 'Developer';
